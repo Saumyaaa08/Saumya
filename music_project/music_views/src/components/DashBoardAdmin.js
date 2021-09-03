@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink, Route, Switch } from "react-router-dom";
-import { Singers } from "./Singers";
-import { Song } from "./Song";
-export const DashBoard = ({ msg }) => {
+import { SongAdd } from "./SongAdd";
+import { SongRemove } from "./SongRemove";
+export const DashBoardAdmin = ({ msg }) => {
   return (
     <>
       <header className='navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow'>
@@ -43,26 +43,24 @@ export const DashBoard = ({ msg }) => {
           >
             <div className='position-sticky pt-3'>
               <ul className='nav flex-column'>
-                <li className='nav-item'>
+                <li classname='nav-item'>
                   <NavLink
-                    className='nav-link active'
+                    classname='nav-link active'
                     aria-current='page'
-                    to='/singers'
+                    to='/SongAdd'
                   >
                     <span data-feather='home'></span>
-                    Singers
+                    Add Song
                   </NavLink>
                 </li>
-                <li className='nav-item'>
-                  <NavLink className='nav-link' to='/songs/Sonu Nigam'>
-                    <span data-feather='file'></span>
-                    Sonu Nigam Songs
-                  </NavLink>
-                </li>
-                <li className='nav-item'>
-                  <NavLink className='nav-link' to='/songs/Shaan'>
-                    <span data-feather='file'></span>
-                    Shaan Songs
+                <li classname='nav-item'>
+                  <NavLink
+                    classname='nav-link active'
+                    aria-current='page'
+                    to='/SongRemove'
+                  >
+                    <span data-feather='home'></span>
+                    Remove Song
                   </NavLink>
                 </li>
               </ul>
@@ -75,9 +73,9 @@ export const DashBoard = ({ msg }) => {
             </div>
 
             <Switch>
-              <Route path='/' exact component={Singers} />
-              <Route path='/singers' component={Singers} />
-              <Route path='/songs/:singerName' component={Song} />
+              <Route path='/' exact component={SongAdd} />
+              <Route path='/SongAdd' component={SongAdd} />
+              <Route path='/SongRemove' component={SongRemove} />
               <Route render={() => <h1>404 Page Not Found</h1>} />
             </Switch>
           </main>
